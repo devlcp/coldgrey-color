@@ -39,7 +39,7 @@ local theme = lush(function()
     EndOfBuffer  { bg = colors.background }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     TermCursor   { fg = colors.foreground }, -- cursor in a focused terminal
     TermCursorNC { fg = colors.foreground }, -- cursor in an unfocused terminal
-    ErrorMsg     { bg = colors.red, fg = colors.foreground }, -- error messages on the command line
+    ErrorMsg     { fg = colors.red }, -- error messages on the command line
     -- VertSplit    { }, -- the column separating vertically split windows
     Folded       { }, -- line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
