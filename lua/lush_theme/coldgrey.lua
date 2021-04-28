@@ -31,13 +31,13 @@ local theme = lush(function()
     -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg = colors.foreground, fg = colors.background }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = colors.background.lightness(20) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- Directory    { }, -- directory names (and other special names in listings)
+    Directory    { fg = colors.foreground, gui = 'bold' }, -- directory names (and other special names in listings)
     DiffAdd      { bg = colors.green, fg = colors.background.lightness(30) }, -- diff mode: Added line |diff.txt|
     DiffChange   { bg = colors.yellow, fg = colors.background.lightness(30) }, -- diff mode: Changed line |diff.txt|
     DiffDelete   { bg = colors.red, fg = colors.background.lightness(30) }, -- diff mode: Deleted line |diff.txt|
     DiffText     { bg = colors.red, fg = colors.background }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { bg = colors.background }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    TermCursor   { fg = colors.foreground }, -- cursor in a focused terminal
+    TermCursor   { bg = colors.foreground, fg = colors.background }, -- cursor in a focused terminal
     TermCursorNC { fg = colors.foreground }, -- cursor in an unfocused terminal
     ErrorMsg     { fg = colors.red }, -- error messages on the command line
     -- VertSplit    { }, -- the column separating vertically split windows
@@ -54,7 +54,7 @@ local theme = lush(function()
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
     NonText      { fg = colors.pink }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { bg = 'none', fg = colors.foreground }, -- normal text
+    Normal       { bg = colors.background, fg = colors.foreground }, -- normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu        { bg = colors.background.da(10) }, -- Popup menu: normal item.
@@ -65,10 +65,10 @@ local theme = lush(function()
     QuickFixLine { bg = colors.foreground,  fg = colors.background }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search       { }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey   { fg = colors.brown }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { gui = 'underline' }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
-    -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellBad     { gui = 'underline' }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
+    SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine   { bg = colors.foreground.da(10), fg = colors.background }, -- status line of current window
     StatusLineNC { }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { bg = colors.background.da(30), fg = colors.foreground }, -- tab pages line, not active tab page label
@@ -264,32 +264,32 @@ local theme = lush(function()
     NvimTreeVimIcon         { fg = colors.green },
     NvimTreeTypescriptIcon  { fg = colors.cyan.sa(50) },
 
-    NvimTreeLicenseIcon     { },
-    NvimTreeYamlIcon        { },
-    NvimTreeTomlIcon        { },
-    NvimTreeGitignoreIcon   { },
-    NvimTreeJsonIcon        { },
+    NvimTreeLicenseIcon     { fg = colors.red.sa(10) },
+    NvimTreeYamlIcon        { fg = colors.blue },
+    NvimTreeTomlIcon        { fg = colors.blue },
+    NvimTreeGitignoreIcon   { fg = colors.blue },
+    NvimTreeJsonIcon        { fg = colors.blue },
 
-    NvimTreeGitDirty        { },
-    NvimTreeGitStaged       { },
-    NvimTreeGitMerge        { },
-    NvimTreeGitRenamed      { },
-    NvimTreeGitNew          { },
+    NvimTreeGitDirty        { fg = colors.red },
+    NvimTreeGitStaged       { fg = colors.red },
+    NvimTreeGitMerge        { fg = colors.yellow(40) },
+    NvimTreeGitRenamed      { fg = colors.blue(40) },
+    NvimTreeGitNew          { fg = colors.green(50) },
 
-    NvimTreeFileDirty       { },
-    NvimTreeFileStaged      { },
-    NvimTreeFileMerge       { },
-    NvimTreeFileNew         { },
-    NvimTreeFileRenamed     { },
+    NvimTreeFileDirty       { fg = colors.purple },
+    NvimTreeFileStaged      { fg = colors.purple },
+    NvimTreeFileMerge       { fg = colors.purple },
+    NvimTreeFileNew         { fg = colors.purple },
+    NvimTreeFileRenamed     { fg = colors.purple },
 
     NvimTreeSymlink         { },
-    NvimTreeFolderName      { fg = colors.cyan },
+    NvimTreeFolderName      { fg = colors.green },
     NvimTreeRootFolder      { fg = colors.cyan, gui = 'bold' },
     NvimTreeFolderIcon      { fg = colors.foreground },
-    NvimTreeEmptyFolderName { fg = colors.cyan },
+    NvimTreeEmptyFolderName { fg = colors.green, gui = 'underline' },
     NvimTreeExecFile        { fg = colors.red },
     NvimTreeSpecialFile     { fg = colors.purple },
-    NvimTreeImageFile       { fg = colors.green },
+    NvimTreeImageFile       { fg = colors.purple },
     NvimTreeMarkdownFile    { fg = colors.pink},
     NvimTreeIndentMarker    { fg = colors.foreground },
 
