@@ -54,7 +54,7 @@ local theme = lush(function()
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
     NonText      { fg = colors.pink }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { bg = 'none', fg = colors.foreground }, -- normal text
+    Normal       { bg = colors.background, fg = colors.foreground }, -- normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu        { bg = colors.background.da(10) }, -- Popup menu: normal item.
@@ -292,7 +292,6 @@ local theme = lush(function()
     NvimTreeImageFile       { fg = colors.green },
     NvimTreeMarkdownFile    { fg = colors.pink},
     NvimTreeIndentMarker    { fg = colors.foreground },
-
   }
 end)
 
