@@ -24,8 +24,8 @@ local theme = lush(function()
 
   return {
     Comment      { fg = colors.background.lightness(40) }, -- any comment
-    -- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
-    Conceal      { bg = colors.pink, fg = colors.background}, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    ColorColumn  { bg = colors.background.da(10) }, -- used for the columns set with 'colorcolumn'
+    Conceal      { bg = colors.pink, fg = colors.background }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor       { }, -- character under the cursor
     -- lCursor      { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
@@ -40,8 +40,8 @@ local theme = lush(function()
     TermCursor   { bg = colors.foreground, fg = colors.background }, -- cursor in a focused terminal
     TermCursorNC { fg = colors.foreground }, -- cursor in an unfocused terminal
     ErrorMsg     { fg = colors.red }, -- error messages on the command line
-    -- VertSplit    { }, -- the column separating vertically split windows
-    Folded       { }, -- line used for closed folds
+    VertSplit    { fg = colors.foreground }, -- the column separating vertically split windows
+    -- Folded       { }, -- line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
     SignColumn   { bg = colors.background.lightness(20) }, -- column where |signs| are displayed
     -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
@@ -75,7 +75,7 @@ local theme = lush(function()
     TabLineFill  { bg = colors.background.da(30), fg = colors.foreground.da(40) }, -- tab pages line, where there are no labels
     TabLineSel   { bg = colors.foreground.da(30), fg = colors.background.lightness(30), gui = 'bold' }, -- tab pages line, active tab page label
     Title        { fg = colors.foreground }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = colors.foreground, fg = colors.background }, -- Visual mode selection
+    Visual       { bg = colors.background.lightness(20) }, -- Visual mode selection
     VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { bg = colors.red.sa(30), fg = colors.background.lightness(20) }, -- warning messages
     Whitespace   { fg = colors.background.lightness(30) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
