@@ -268,9 +268,9 @@ local theme = lush(function()
 
     NvimTreeGitDirty        { fg = colors.red },
     NvimTreeGitStaged       { fg = colors.red },
-    NvimTreeGitMerge        { fg = colors.yellow(40) },
-    NvimTreeGitRenamed      { fg = colors.blue(40) },
-    NvimTreeGitNew          { fg = colors.green(50) },
+    NvimTreeGitMerge        { fg = colors.yellow.sa(40) },
+    NvimTreeGitRenamed      { fg = colors.blue.sa(40) },
+    NvimTreeGitNew          { fg = colors.green.sa(50) },
 
     NvimTreeFileDirty       { fg = colors.purple },
     NvimTreeFileStaged      { fg = colors.purple },
